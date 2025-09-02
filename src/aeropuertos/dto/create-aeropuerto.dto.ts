@@ -1,20 +1,12 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+export class CreateAeropuertoDto {
+  @ApiProperty({ default: 'Arturo Merino Benítez' })
+  nombre: string;
 
-  const config = new DocumentBuilder()
-    .setTitle('API AirConnect backend')
-    .setDescription('Esta api describe la plataforma de vuelos de Air Connect')
-    .setVersion('1.0.0')
-    .addTag('app-airconnect-api')
-    .build();
+  @ApiProperty({ default: 'SCL', description: 'Código IATA (3 letras)' })
+  codigo: string;
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
-
-  await app.listen(process.env.PORT ?? 3000);
+  @ApiProperty({ default: 'Santiago' })
+  ciudad: string;
 }
-bootstrap();
