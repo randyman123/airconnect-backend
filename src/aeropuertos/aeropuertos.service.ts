@@ -12,14 +12,14 @@ export class AeropuertosService {
   private aeropuertos: Aeropuerto[] = [];
 
   create(dto: CreateAeropuertoDto): Aeropuerto {
-    const existe = this.aeropuertos.find((a) => a.codigo === dto.codigo); // simple
+    const existe = this.aeropuertos.find((a) => a.codigo === dto.codigo);
     if (existe)
       throw new BadRequestException(
         `El aeropuerto con código ${dto.codigo} ya existe`,
       );
 
     const aeropuerto: Aeropuerto = {
-      id: this.aeropuertos.length + 1, // simple e incremental
+      id: this.aeropuertos.length + 1,
       nombre: dto.nombre,
       codigo: dto.codigo,
       ciudad: dto.ciudad,
