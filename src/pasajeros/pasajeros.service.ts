@@ -1,4 +1,3 @@
-// src/pasajeros/pasajeros.service.ts
 import {
   BadRequestException,
   Injectable,
