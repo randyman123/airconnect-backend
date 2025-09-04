@@ -1,4 +1,3 @@
-// src/aeropuertos/aeropuertos.controller.ts
 import {
   Controller,
   Get,
